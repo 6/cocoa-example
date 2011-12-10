@@ -22,12 +22,12 @@
 		C14848B91493CD450091F31F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		C14848BA1493CD450091F31F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C14848BB1493CD450091F31F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C14848BE1493CD450091F31F /* cocoa-example-Info.plist */ = {isa = PBXFileReference; path = "cocoa-example-Info.plist"; sourceTree = "<group>"; };
+		C14848BE1493CD450091F31F /* cocoa-example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cocoa-example-Info.plist"; sourceTree = "<group>"; };
 		C14848C01493CD450091F31F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C14848C21493CD450091F31F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C14848C41493CD450091F31F /* cocoa-example-Prefix.pch */ = {isa = PBXFileReference; path = "cocoa-example-Prefix.pch"; sourceTree = "<group>"; };
+		C14848C41493CD450091F31F /* cocoa-example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cocoa-example-Prefix.pch"; sourceTree = "<group>"; };
 		C14848C61493CD450091F31F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		C14848C81493CD450091F31F /* PGGDocument.h */ = {isa = PBXFileReference; path = PGGDocument.h; sourceTree = "<group>"; };
+		C14848C81493CD450091F31F /* PGGDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGGDocument.h; sourceTree = "<group>"; };
 		C14848C91493CD450091F31F /* PGGDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGGDocument.m; sourceTree = "<group>"; };
 		C14848CC1493CD450091F31F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PGGDocument.xib; sourceTree = "<group>"; };
 		C14848CF1493CD450091F31F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };

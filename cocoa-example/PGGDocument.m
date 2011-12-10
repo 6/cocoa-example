@@ -20,6 +20,8 @@
     return self;
 }
 
+#pragma mark - NSDocument overrides
+
 - (NSString *)windowNibName
 {
     // Override returning the nib file name of the document
@@ -27,10 +29,51 @@
     return @"PGGDocument";
 }
 
+#pragma mark - actions
+
+- (IBAction)createNewItem:(id)sender
+{
+    // create todoItems array if doesn't exist
+    if(!todoItems) {
+        todoItems = [NSMutableArray array];
+    }
+    
+    [todoItems addObject:@"New Item"];
+    
+    // refresh table view with new data from the dataSource (PGGDocument)
+    [itemTableView reloadData];
+    
+    // flag document as having unsaved changes
+    [self updateChangeCount:NSChangeDone];
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+}
+
+#pragma mark - data source methods
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv
+{
+    // same as the number of objects in the todoItems array
+    return [todoItems count];
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    // returns the item corresponding to the selected cell
+    return [todoItems objectAtIndex:row];
+}
+
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    // update todoItems array after user edits a todo item
+    [todoItems replaceObjectAtIndex:row withObject:object];
+    
+    // flag the document as having unsaved changes
+    [self updateChangeCount:NSChangeDone];
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError

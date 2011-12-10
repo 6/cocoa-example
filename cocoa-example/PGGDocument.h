@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PGGDocument : NSDocument
-
+@interface PGGDocument : NSDocument <NSTableViewDataSource>
+{
+    NSMutableArray *todoItems;
+    IBOutlet NSTableView *itemTableView;
+}
+- (IBAction)createNewItem:(id)sender;
 @end
