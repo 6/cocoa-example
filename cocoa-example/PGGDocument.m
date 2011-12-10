@@ -82,9 +82,14 @@
      Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
     You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
     */
-    NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-    @throw exception;
-    return nil;
+    if(!todoItems) {
+        todoItems = [NSMutableArray array];
+    }
+    
+    // put todoItems array into an NSData object
+    NSData *data = [NSPropertyListSerialization dataWithPropertyList:todoItems format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListMutableContainers error:outError];
+    
+    return data;
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
@@ -94,9 +99,11 @@
     You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
     If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
     */
-    NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-    @throw exception;
-    return YES;
+    // extract todoItems from NSData object
+    todoItems = [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:outError];
+    
+    // return success or failure of above call
+    return (todoItems != nil);
 }
 
 + (BOOL)autosavesInPlace
